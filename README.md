@@ -1,2 +1,3 @@
-# PB-S3
-Praktikum Mata Kuliah Pemrograman Backend Semester 3
+# Pertemuan 3
+
+Reintroduction to PHP and OOP
