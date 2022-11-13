@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StudentController;
 
 /*
@@ -16,9 +17,9 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 # method get
 Route::get('/animals', [AnimalController::class, 'index']);
@@ -31,7 +32,6 @@ Route::put('/animals/{id}', [AnimalController::class, 'update']);
 
 # method delete
 Route::delete('/animals/{id}', [AnimalController::class, 'destroy']);
-
 
 
 # get all resources students
@@ -53,3 +53,9 @@ Route::put('/students/{$id}', [StudentController::class, 'update']);
 # menghapus resources students
 # method delete
 Route::delete('/students/{$id}', [StudentController::class, 'destroy']);
+
+
+# auth
+Route::get('/students', [StudentController::class, 'index'])->middleware('auth:sanctum');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
