@@ -6,7 +6,7 @@ class Student {
     static all = () => {
         return new Promise((resolve, reject) =>{
             // Lakukan query ke db untuk ambil data
-            const sql = "SELECT * FROM students";
+            const sql = 'SELECT * FROM students';
             db.query(sql, (err, res) => {
                 if(err) throw err;
                 resolve(res);
